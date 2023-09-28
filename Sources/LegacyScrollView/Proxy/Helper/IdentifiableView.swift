@@ -20,7 +20,7 @@ public struct LegacyIDView: UIViewRepresentable {
 
     public func updateUIView(_ uiView: UIView, context: Context) {
         uiView.tag = tag
-        uiView.backgroundColor = .purple
+        uiView.backgroundColor = .clear
     }
 }
 
