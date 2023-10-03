@@ -52,13 +52,25 @@ extension LegacyScrollViewReader {
     }
 
     private func performScrollTo(point: CGPoint, animated: Bool, in view: LegacyUIScrollViewReader) {
-        view.scrollView?.setContentOffset(point, animated: animated)
+        if animated {
+             UIView.animate(withDuration: 0.5) {
+                view.scrollView?.setContentOffset(contentFrame.origin, animated: true)
+             }
+        } else {
+            view.scrollView?.setContentOffset(contentFrame.origin, animated: false)
+        }
     }
 
     public func performScrollTo(_ id: Int, anchor: UnitPoint = .top, animated: Bool, in view: LegacyUIScrollViewReader) {
         guard let contentFrame = getRectOfContent(with: id, in: view) else { return }
 
-        view.scrollView?.setContentOffset(contentFrame.origin, animated: animated)
+        if animated {
+             UIView.animate(withDuration: 0.5) {
+                view.scrollView?.setContentOffset(contentFrame.origin, animated: true)
+             }
+        } else {
+            view.scrollView?.setContentOffset(contentFrame.origin, animated: false)
+        }
     }
 
     public func performScrollToIdIfNeeded(_ id: Int, anchor: UnitPoint = .top, in view: LegacyUIScrollViewReader) {
