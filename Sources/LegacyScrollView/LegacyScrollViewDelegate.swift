@@ -17,6 +17,7 @@ public class LegacyScrollViewCoordinator<Content: View>: NSObject, UIScrollViewD
     var onReachTop: ((UIScrollView) -> Void)?
     var onEndDecelerating: ((UIScrollView) -> Void)?
     var onEndDragging: ((UIScrollView) -> Void)?
+    var willEndDragging: ((UIScrollView, CGPoint, UnsafeMutablePointer<CGPoint>) -> Void)?
 
     init(_ legacyScrollView: LegacyScrollView<Content>) {
         self.legacyScrollView = legacyScrollView
@@ -41,5 +42,9 @@ public class LegacyScrollViewCoordinator<Content: View>: NSObject, UIScrollViewD
         } else if (scrollView.contentOffset.y <= 0) {
             onReachTop?(scrollView)
         }
+    }
+
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        willEndDragging?(scrollView, velocity, targetContentOffset)
     }
 }

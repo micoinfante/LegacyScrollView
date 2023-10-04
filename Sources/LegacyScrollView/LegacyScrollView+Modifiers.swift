@@ -100,4 +100,20 @@ extension LegacyScrollView {
                          onEndDecelerating: onEndDecelerating,
                          onEndDragging: onEndDragging)
     }
+
+    /**
+     `UIScrollViewDelegate` `scrollViewWillEndDragging(_:)` callback
+    */
+    public func willEndDragging(_ willEndDragging: @escaping (UIScrollView, CGPoint, UnsafeMutablePointer<CGPoint>) -> Void) -> LegacyScrollView {
+        LegacyScrollView(axis: axis,
+                         showsIndicators: showsIndicators,
+                         content: content,
+                         onGestureShouldBegin: onGestureShouldBegin,
+                         onScroll: onScroll,
+                         onReachBottom: onReachBottom,
+                         onReachTop: onReachTop,
+                         onEndDecelerating: onEndDecelerating,
+                         onEndDragging: onEndDragging,
+                         willEndDragging: willEndDragging)
+    }
 }

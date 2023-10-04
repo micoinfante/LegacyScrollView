@@ -24,6 +24,7 @@ public struct LegacyScrollView<Content: View>: UIViewRepresentable {
     internal var onReachTop: ((UIScrollView) -> Void)?
     internal var onEndDecelerating: ((UIScrollView) -> Void)?
     internal var onEndDragging: ((UIScrollView) -> Void)?
+    internal var willEndDragging: ((UIScrollView, CGPoint, UnsafeMutablePointer<CGPoint>) -> Void)?
 
     public func makeCoordinator() -> LegacyScrollViewCoordinator<Content> {
         let ans = LegacyScrollViewCoordinator(self)
