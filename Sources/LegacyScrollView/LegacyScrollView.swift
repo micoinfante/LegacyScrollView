@@ -33,6 +33,7 @@ public struct LegacyScrollView<Content: View>: UIViewRepresentable {
         ans.onReachBottom = onReachBottom
         ans.onEndDragging = onEndDragging
         ans.onEndDecelerating = onEndDecelerating
+        ans.willEndDragging = willEndDragging
         return ans
     }
 
