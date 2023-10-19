@@ -35,9 +35,9 @@ extension LegacyScrollViewReader {
         } getRectOfContent: { id in
             getRectOfContent(with: id, in: view)
         } performScrollToPoint: { point, animated, duration in
-            performScrollTo(point: point, animated: animated, in: view)
+            performScrollTo(point: point, animated: animated, in: view, duration: duration)
         } performScrollToId: { id, anchor, animated, duration in
-            performScrollTo(id, anchor: anchor, animated: animated, in: view)
+            performScrollTo(id, anchor: anchor, animated: animated, in: view, duration: duration)
         } performScrollToIdIfNeeded: { id, anchor in
             performScrollToIdIfNeeded(id, anchor: anchor, in: view)
         }
