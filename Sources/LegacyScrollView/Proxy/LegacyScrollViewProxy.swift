@@ -53,7 +53,7 @@ extension LegacyScrollViewReader {
 
     private func performScrollTo(point: CGPoint, animated: Bool, in view: LegacyUIScrollViewReader, duration: CGFloat = 0.5) {
         if animated {
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
+            UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
                 view.scrollView?.setContentOffset(point, animated: false)
             }, completion: nil)
 //             UIView.animate(withDuration: duration) {
@@ -71,7 +71,7 @@ extension LegacyScrollViewReader {
 //             UIView.animate(withDuration: duration) {
 //                view.scrollView?.setContentOffset(contentFrame.origin, animated: false)
 //             }
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
+            UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0, options: [], animations: {
                 view.scrollView?.setContentOffset(contentFrame.origin, animated: false)
             }, completion: nil)
         } else {
